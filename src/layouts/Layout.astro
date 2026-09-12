@@ -1,10 +1,11 @@
 ---
+import { withBase } from '../utils/url';
 import Icon from '../components/Icon.astro';
 import { profile, projects } from '../data/portfolio';
 import '../styles/global.css';
 interface Props { title?: string; description?: string; }
 const { title = 'Overview', description = profile.introduction } = Astro.props;
-const isHome = Astro.url.pathname === '/';
+const isHome = Astro.url.pathname.replace(/\/$/, '') === withBase('/').replace(/\/$/, '');
 const navigation = [
   { label: 'Overview', id: 'overview', icon: 'home' },
   { label: 'Certifications', id: 'certifications', icon: 'award' },
@@ -13,7 +14,7 @@ const navigation = [
   { label: 'Education', id: 'education', icon: 'book' },
   { label: 'About me', id: 'about', icon: 'user' },
 ];
-const siteUrl = profile.siteUrl ? new URL(Astro.url.pathname, profile.siteUrl).href : undefined;
+const siteUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
 ---
 <!doctype html>
 <html lang="en">
@@ -23,7 +24,7 @@ const siteUrl = profile.siteUrl ? new URL(Astro.url.pathname, profile.siteUrl).h
     <meta name="theme-color" content="#f7f8fc" />
     <meta property="og:title" content={`${title} · ${profile.name}`} /><meta property="og:description" content={description} /><meta property="og:type" content="website" />
     {siteUrl && <><link rel="canonical" href={siteUrl} /><meta property="og:url" content={siteUrl} /></>}
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
     <script is:inline>
       try { const saved = localStorage.getItem('portfolio-theme'); document.documentElement.dataset.theme = saved === 'dark' || saved === 'light' ? saved : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch { document.documentElement.dataset.theme = 'light'; }
     </script>
@@ -32,15 +33,15 @@ const siteUrl = profile.siteUrl ? new URL(Astro.url.pathname, profile.siteUrl).h
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="mobile-shade" data-shade></div>
     <aside class="sidebar" id="sidebar" aria-label="Portfolio navigation">
-      <a href="/" class="brand"><span class="brand-mark">rp<span>.</span></span><span>{profile.name}<span class="brand-caption">PERSONAL PORTFOLIO</span></span></a>
+      <a href={withBase('/')} class="brand"><span class="brand-mark">rp<span>.</span></span><span>{profile.name}<span class="brand-caption">PERSONAL PORTFOLIO</span></span></a>
       <div class="sidebar-label">EXPLORE</div>
-      <nav>{navigation.map((item) => <a class:list={['nav-link', { active: isHome ? item.id === 'overview' : item.id === 'projects' }]} href={`/#${item.id}`} data-nav={item.id} aria-current={(isHome ? item.id === 'overview' : item.id === 'projects') ? 'location' : undefined}><Icon name={item.icon} size={19} />{item.label}{item.id === 'projects' && <span class="nav-count">{String(projects.length).padStart(2, '0')}</span>}</a>)}</nav>
-      <div class="sidebar-bottom"><div class="sidebar-note"><Icon name="spark" size={19} /><strong>Always a work in progress.</strong><p>Building, learning, and figuring<br/>things out along the way.</p></div><div class="sidebar-profile"><span class="avatar">{profile.initials}</span><div><strong>{profile.name}</strong><span>A little about my world</span></div><a href="/#about" aria-label={`About ${profile.name}`}><Icon name="arrow" size={17} /></a></div></div>
+      <nav>{navigation.map((item) => <a class:list={['nav-link', { active: isHome ? item.id === 'overview' : item.id === 'projects' }]} href={withBase(`/#${item.id}`)} data-nav={item.id} aria-current={(isHome ? item.id === 'overview' : item.id === 'projects') ? 'location' : undefined}><Icon name={item.icon} size={19} />{item.label}{item.id === 'projects' && <span class="nav-count">{String(projects.length).padStart(2, '0')}</span>}</a>)}</nav>
+      <div class="sidebar-bottom"><div class="sidebar-note"><Icon name="spark" size={19} /><strong>Always a work in progress.</strong><p>Building, learning, and figuring<br/>things out along the way.</p></div><div class="sidebar-profile"><span class="avatar">{profile.initials}</span><div><strong>{profile.name}</strong><span>A little about my world</span></div><a href={withBase('/#about')} aria-label={`About ${profile.name}`}><Icon name="arrow" size={17} /></a></div></div>
     </aside>
     <div class="workspace">
-      <header class="topbar"><div class="breadcrumb"><button class="icon-button menu-button" data-menu aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false"><Icon name="menu" /></button><span class="breadcrumb-root">My portfolio</span><span class="breadcrumb-divider">/</span><span>{title}</span></div><div class="header-actions"><span class="built-with"><span></span> Built with curiosity</span><button class="icon-button" data-theme-toggle aria-label="Switch color theme" aria-pressed="false"><Icon name="sun" class="theme-sun" /><Icon name="moon" class="theme-moon" /></button><a class="header-avatar" href="/#about" aria-label={`About ${profile.name}`}>{profile.initials}</a></div></header>
+      <header class="topbar"><div class="breadcrumb"><button class="icon-button menu-button" data-menu aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false"><Icon name="menu" /></button><span class="breadcrumb-root">My portfolio</span><span class="breadcrumb-divider">/</span><span>{title}</span></div><div class="header-actions"><span class="built-with"><span></span> Built with curiosity</span><button class="icon-button" data-theme-toggle aria-label="Switch color theme" aria-pressed="false"><Icon name="sun" class="theme-sun" /><Icon name="moon" class="theme-moon" /></button><a class="header-avatar" href={withBase('/#about')} aria-label={`About ${profile.name}`}>{profile.initials}</a></div></header>
       <main id="main"><slot /></main>
-      <footer><span>© {new Date().getFullYear()} {profile.name}</span><span>Made with Astro & a little curiosity <Icon name="spark" size={14} /></span><a href="/#overview">Back to top ↑</a></footer>
+      <footer><span>© {new Date().getFullYear()} {profile.name}</span><span>Made with Astro & a little curiosity <Icon name="spark" size={14} /></span><a href={withBase('/#overview')}>Back to top ↑</a></footer>
     </div>
     <script>
       const toggle = document.querySelector<HTMLButtonElement>('[data-theme-toggle]');
