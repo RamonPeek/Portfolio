@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Astro build output and generated files
+dist/
+.astro/
+
+# Environment files (keep a shareable example)
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# Test output
+coverage/
+
+# Operating system files
+.DS_Store
+Thumbs.db
