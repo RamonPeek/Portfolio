@@ -7,10 +7,10 @@ const { title = 'Overview', description = profile.introduction } = Astro.props;
 const isHome = Astro.url.pathname === '/';
 const navigation = [
   { label: 'Overview', id: 'overview', icon: 'home' },
+  { label: 'Certifications', id: 'certifications', icon: 'award' },
   { label: 'Projects', id: 'projects', icon: 'grid' },
   { label: 'Experience', id: 'experience', icon: 'briefcase' },
   { label: 'Education', id: 'education', icon: 'book' },
-  { label: 'Certifications', id: 'certifications', icon: 'award' },
   { label: 'About me', id: 'about', icon: 'user' },
 ];
 const siteUrl = profile.siteUrl ? new URL(Astro.url.pathname, profile.siteUrl).href : undefined;

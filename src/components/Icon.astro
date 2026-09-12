@@ -2,6 +2,9 @@
 interface Props { name: string; size?: number; class?: string; }
 const { name, size = 20, class: className } = Astro.props;
 const paths: Record<string, string> = {
+  azure: 'M9 3h6l7 18h-8l-3-5h7L12 5 6 21H2Z',
+  csharp: 'm12 2 9 5v10l-9 5-9-5V7ZM12 8a4 4 0 1 0 0 8M15 10h5m-5 4h5m-3-6-1 8m4-8-1 8',
+  location: 'M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0ZM12 7a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z',
   home: 'm3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z',
   grid: 'M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z',
   briefcase: 'M8 6V4h8v2M3 7h18v13H3zM3 12h18M10 12v3h4v-3',

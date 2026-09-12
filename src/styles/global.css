@@ -87,3 +87,94 @@ footer { border-top: 1px solid var(--border); margin: 0 42px; padding: 22px 0; d
 @media (max-width: 650px) { .topbar { padding: 0 18px; }.built-with { display: none; }.breadcrumb { gap: 10px; font-size: 10px; }.header-actions { gap: 10px; }main { padding: 26px 18px 0; }h1 { font-size: 31px; }.page-heading { align-items: flex-start; margin-bottom: 22px; }.page-heading .button { font-size: 9px; padding: 8px 10px; margin-top: 24px; gap: 7px; }.page-heading .button svg { width: 14px; }.eyebrow { font-size: 8px; letter-spacing: 1.6px; }.page-heading p { font-size: 10px; }.hero { grid-template-columns: 1fr; }.hero-copy { padding: 30px 28px 0; }.hero h2 { font-size: 37px; }.hero-copy p { max-width: 390px; font-size: 12px; }.hero-art { min-height: 300px; }.hero-editor { width: 285px; transform: rotate(-4deg); }.editor-code { font-size: 10px; }.editor-code > div { gap: 16px; }.tag-typescript { right: max(20px, calc(50% - 175px)); top: 16px; }.tag-curiosity { left: max(18px, calc(50% - 175px)); bottom: 22px; }.spark-two { top: 28px; left: 28px; }.spark-one { bottom: 28px; right: 25px; }.hero-actions { margin-top: 22px; }.hero-label { font-size: 7px; }.quick-links { grid-template-columns: 1fr; gap: 10px; margin-top: 14px; }.quick-links > a { padding: 13px 17px; gap: 13px; }.quick-links strong { font-size: 12px; }.quick-links div > span { font-size: 10px; }.quick-icon { width: 37px; height: 37px; }.quick-links a > svg { width: 18px; }.section-note { display: none; }section { margin-bottom: 43px; }.overview-section { margin-bottom: 39px; }.section-heading h2 { font-size: 23px; }.section-heading p { font-size: 11px; }.project-toolbar { align-items: flex-start; }.filter-button { font-size: 9px; padding: 7px 9px; }.project-result-count { padding-top: 7px; font-size: 9px; }.projects-grid { grid-template-columns: 1fr; gap: 19px; }.project-visual { height: 235px; }.mini-browser, .mini-dashboard, .mini-terminal { width: 250px; transform: rotate(-3deg) scale(1.16); }.mini-content { padding-left: 15px; }.mini-content > strong { font-size: 14px; }.terminal-lines { font-size: 7px; padding-left: 14px; }.project-card-content { padding: 20px; }.card-meta { font-size: 9px; }.status { font-size: 8px; }.project-card h3 { font-size: 17px; }.project-card-content > p { font-size: 12px; min-height: auto; }.tags > span { font-size: 9px; }.project-link { font-size: 11px; margin-top: 18px; padding-top: 15px; }.sample-note { align-items: flex-start; font-size: 9px; }.sample-note svg { margin-top: 2px; }.timeline-panel { padding: 20px; }.timeline-item { gap: 16px; }.timeline-marker { width: 36px; height: 36px; }.timeline-content h3 { font-size: 15px; }.timeline-content p { font-size: 11px; }.timeline-top { flex-wrap: wrap; }.certification-grid { grid-template-columns: 1fr; }.certification-card h3 { font-size: 15px; }.certificate-icon { width: 48px; }.about-panel { grid-template-columns: 1fr; }.about-monogram { min-height: 200px; }.about-monogram > span { font-size: 68px; }.about-copy { padding: 25px; }.about-copy h3 { font-size: 24px; }.about-copy p { font-size: 12px; }.hobbies-heading { flex-direction: column; align-items: flex-start; gap: 5px; }.hobby-grid { grid-template-columns: 1fr; gap: 12px; }.hobby-card { padding: 22px; }.hobby-card p { font-size: 12px; }.hobby-card h4 { font-size: 15px; }.contact-panel { flex-direction: column; align-items: flex-start; padding: 24px; gap: 22px; }.contact-panel p { font-size: 11px; }.contact-placeholder { font-size: 11px; }footer { margin: 0 18px; flex-wrap: wrap; padding: 19px 0; row-gap: 9px; }footer > span:nth-child(2) { order: 3; width: 100%; }.detail-title { gap: 12px; flex-wrap: wrap; }.detail-title h1 { font-size: 34px; }.detail-introduction { font-size: 13px; }.detail-visual .project-visual { height: 275px; }.detail-visual .mini-browser, .detail-visual .mini-dashboard, .detail-visual .mini-terminal { transform: scale(1.2) rotate(-3deg); width: 240px; }.detail-grid { grid-template-columns: 1fr; gap: 25px; }.detail-sidebar .button { width: auto; margin-right: 5px; }.detail-body p, .detail-body li { font-size: 12px; }.detail-bottom { flex-direction: column; align-items: flex-start; }.example-banner { align-items: flex-start; font-size: 10px; }.example-banner svg { margin-top: 2px; } }
 @media (max-width: 360px) { .page-heading { flex-direction: column; gap: 12px; }.page-heading .button { margin-top: 0; }.hero-copy { padding-left: 22px; padding-right: 22px; }.hero h2 { font-size: 32px; }.hero-editor { width: 245px; }.editor-code { font-size: 9px; }.editor-code > div { gap: 9px; }.tag-typescript { right: 12px; }.tag-curiosity { left: 12px; }.breadcrumb-root { display: none; }.breadcrumb-divider { display: none; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; }*, *::before, *::after { transition: none !important; animation: none !important; }.project-card:hover, .button:hover { transform: none; } }
+
+/* Overview identity inside the purple hero. */
+.hero-identity { display: flex; align-items: center; gap: 18px; margin: 26px 0 20px; }
+.hero-avatar { width: 88px; height: 88px; flex-shrink: 0; border-radius: 24px; overflow: hidden; background: #ffffff14; border: 1px solid #ffffff30; display: grid; place-items: center; }
+.hero-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.hero-avatar > span { font-size: 30px; color: #e0d5ff; font-weight: 600; }
+.hero-identity h1 { color: white; font-size: clamp(27px, 2.65vw, 41px); line-height: 1.15; letter-spacing: -1px; margin: 0 0 9px; }
+.hero-role { font-size: 14px; color: #e0daef; }
+.hero-location { display: flex; align-items: center; gap: 5px; font-size: 11px; color: #c0bed1; margin-top: 9px; }
+.tag-typescript svg { color: #0078d4; }
+.tag-curiosity svg { color: #7b3fb5; }
+@media (max-width: 1020px) and (min-width: 651px) { .hero-identity { gap: 12px; }.hero-avatar { width: 64px; height: 64px; border-radius: 18px; }.hero-identity h1 { font-size: 27px; }.editor-code { font-size: 8px; } }
+@media (max-width: 360px) { .hero-identity { gap: 12px; }.hero-avatar { width: 64px; height: 64px; border-radius: 18px; }.hero-identity h1 { font-size: 26px; } }
+
+/* Keep the technology badges attached to the editor at every viewport size. */
+.editor-scene { position: relative; width: 300px; flex-shrink: 0; transform: rotate(-4deg); }
+.editor-scene .hero-editor { width: 100%; transform: none; }
+.editor-scene .tag-typescript { top: -16px; right: -16px; transform: rotate(9deg); }
+.editor-scene .tag-curiosity { bottom: -16px; left: -16px; transform: rotate(-3deg); }
+@media (min-width: 1201px) {
+  .brand { font-size: 18px; }.brand-caption, .sidebar-label { font-size: 11px; }
+  .nav-link { font-size: 15px; }.nav-count { font-size: 12px; }
+  .sidebar-note strong, .sidebar-note p, .sidebar-profile strong { font-size: 13px; }
+  .sidebar-profile div > span { font-size: 11px; }
+  .breadcrumb, .built-with { font-size: 13px; }
+  .eyebrow, .hero-label, .about-label, .contact-panel .eyebrow { font-size: 11px; }
+  .button, .hero-secondary, .filter-button, .project-result-count, .project-link, .text-link { font-size: 14px; }
+  .hero-copy p { font-size: 16px; max-width: 430px; line-height: 1.75; }
+  .hero-role { font-size: 18px; }.hero-location { font-size: 14px; }
+  .hero { min-height: 410px; }.hero-art { min-height: 410px; }
+  .editor-scene { width: 360px; }
+  .editor-header { font-size: 12px; }.editor-code { font-size: 12px; }.line-number { font-size: 11px; }
+  .editor-footer { font-size: 10px; }.floating-tag { font-size: 12px; }
+  .quick-links strong { font-size: 16px; }.quick-links div > span { font-size: 13px; }
+  .section-heading h2 { font-size: 30px; }.section-heading p { font-size: 15px; }
+  .heading-count, .section-note, .sample-note, .hobbies-heading > span, footer { font-size: 12px; }
+  .card-meta, .status, .tags > span, .timeline-date, .hobby-example { font-size: 12px; }
+  .card-meta { flex-wrap: wrap; }
+  .project-card h3, .timeline-content h3, .certification-card h3 { font-size: 21px; }
+  .project-card-content > p, .timeline-content p, .certification-card p, .about-copy p, .hobby-card p, .contact-panel p { font-size: 15px; }
+  .timeline-company { font-size: 14px; }.about-copy h3 { font-size: 28px; }
+  .hobbies-heading h3, .hobby-card h4 { font-size: 18px; }
+  .contact-panel h3 { font-size: 30px; }.contact-placeholder { font-size: 14px; }
+  .detail-body p, .detail-body li, .detail-introduction { font-size: 16px; }
+  .detail-sidebar h3, .detail-sidebar p, .detail-bottom, .example-banner { font-size: 14px; }
+}
+@media (min-width: 1600px) { .editor-scene { width: 390px; }.editor-code { font-size: 13px; } }
+@media (max-width: 1200px) and (min-width: 651px) { .editor-scene { width: 260px; } }
+@media (max-width: 650px) { .editor-scene { width: 285px; } }
+@media (max-width: 360px) { .editor-scene { width: 245px; } }
+
+/* Compact certification tiles keep longer lists easy to scan. */
+.certification-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 12px; }
+.certification-card { padding: 16px; gap: 12px; align-items: flex-start; }
+.certificate-icon { width: 34px; height: 38px; border-radius: 6px; }
+.certification-card > div:last-child { min-width: 0; }
+.certification-card .card-meta { justify-content: flex-start; flex-wrap: wrap; gap: 6px; font-size: 11px; }
+.certification-level { padding: 1px 7px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: 10px; line-height: 1.6; }
+.certification-card h3 { font-size: 16px; margin-top: 8px; line-height: 1.4; }
+.certification-card p { font-size: 12px; margin-top: 5px; }
+.certification-card .project-link { font-size: 12px; padding-top: 9px; margin-top: 10px; }
+
+/* Shared level colors for certification tags and award icons. */
+.certification-card[data-level='Expert'] { --level-color: #7040ad; --level-bg: #f1e9fb; }
+.certification-card[data-level='Specialty'] { --level-color: #975500; --level-bg: #fff1d9; }
+.certification-card[data-level='Associate'] { --level-color: #175caa; --level-bg: #e8f1ff; }
+.certification-card[data-level='Fundamentals'] { --level-color: #19704f; --level-bg: #e5f5ec; }
+[data-theme='dark'] .certification-card[data-level='Expert'] { --level-color: #d0aaff; --level-bg: #39274f; }
+[data-theme='dark'] .certification-card[data-level='Specialty'] { --level-color: #f3c477; --level-bg: #44331e; }
+[data-theme='dark'] .certification-card[data-level='Associate'] { --level-color: #92c4ff; --level-bg: #233650; }
+[data-theme='dark'] .certification-card[data-level='Fundamentals'] { --level-color: #86d9b3; --level-bg: #203b30; }
+.certification-card .certification-level, .certification-card .certificate-icon { color: var(--level-color, var(--accent)); background: var(--level-bg, var(--accent-soft)); }
+
+/* One company logo with a connected timeline for successive roles. */
+.experience-company + .experience-company { border-top: 1px solid var(--border); margin-top: 26px; padding-top: 26px; }
+.experience-company-heading { display: flex; align-items: flex-start; gap: 16px; }
+.experience-company-heading h3 { font-size: 18px; margin: 2px 0 4px; }
+.experience-company-heading h3 a:hover { color: var(--accent); }
+.experience-company-heading > .status { margin-left: auto; }
+.company-logo { width: 48px; height: 48px; flex-shrink: 0; border-radius: 9px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; }
+.company-logo:has(img) { background: #fff; border: 1px solid var(--border); padding: 5px; }
+.company-logo img { width: 100%; height: 100%; object-fit: contain; }
+.experience-meta { display: block; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.experience-roles { list-style: none; margin: 16px 0 0 64px; padding: 0; }
+.experience-role { position: relative; padding-bottom: 24px; }
+.experience-role:last-child { padding-bottom: 0; }
+.experience-role h4 { font-size: 16px; margin-bottom: 5px; }
+.experience-role p { font-size: 14px; color: var(--muted); line-height: 1.8; margin-top: 10px; max-width: 760px; white-space: pre-line; }
+.multiple-roles .experience-role::before { content: ''; position: absolute; width: 7px; height: 7px; left: -44px; top: 8px; border-radius: 50%; background: var(--accent); }
+.multiple-roles .experience-role:not(:last-child)::after { content: ''; position: absolute; left: -41px; top: 20px; bottom: 4px; width: 1px; background: var(--border); }
+@media (max-width: 650px) { .experience-company-heading { gap: 12px; flex-wrap: wrap; }.experience-company-heading h3 { font-size: 16px; }.experience-roles { margin-left: 60px; }.experience-role p { font-size: 13px; }.multiple-roles .experience-role::before { left: -40px; }.multiple-roles .experience-role:not(:last-child)::after { left: -37px; } }

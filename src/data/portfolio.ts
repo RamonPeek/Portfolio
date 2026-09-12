@@ -14,7 +14,10 @@ export interface Project {
   highlights: string[];
 }
 
+export const certificationLevels = ['Expert', 'Specialty', 'Associate', 'Fundamentals'] as const;
+
 export interface Certification {
+  level: typeof certificationLevels[number];
   name: string;
   issuer: string;
   date: string;
@@ -28,14 +31,16 @@ export interface Certification {
 export const profile = {
   name: 'Ramon Peek',
   initials: 'RP',
+  role: 'Azure Specialist & Software Engineer',
+  location: 'Valkenswaard, North Brabant, Netherlands',
   headline: 'Curious by nature. A builder at heart.',
   introduction: 'Welcome to my corner of the internet. A collection of things I build, things I learn, and the experiences along the way.',
   about: 'I enjoy turning ideas into something tangible. This portfolio is a place to share that process — from the first experiment to the lessons learned along the way.',
   email: '',
   githubUrl: '',
-  linkedinUrl: '',
+  linkedinUrl: 'https://www.linkedin.com/in/ramonpeek/',
   siteUrl: '', // Set the public URL to enable canonical links and sitemap.xml.
-  photoUrl: '', // Optional local photograph, e.g. /images/profile.webp.
+  photoUrl: '/images/profile.jpeg', // Optional local photograph, e.g. /images/profile.webp.
 };
 
 export const projects: Project[] = [
@@ -62,14 +67,59 @@ export const projects: Project[] = [
   },
 ];
 
-export const experience = [
-  { role: 'Your role', organization: 'Company name', period: 'Start date — End date', description: 'Add your responsibilities, the challenges you worked on, and the impact of your work.', sample: true },
+export interface ExperienceCompany {
+  organization: string;
+  logoUrl?: string; // Local asset, e.g. /images/companies/company.svg.
+  websiteUrl?: string;
+  period?: string;
+  location?: string;
+  sample?: boolean;
+  roles: {
+    role: string;
+    period: string;
+    employmentType?: string;
+    location?: string;
+    description: string;
+  }[];
+}
+
+// Companies and their roles appear in the order entered, newest first.
+export const experience: ExperienceCompany[] = [
+  {
+    organization: 'Fontys University of Applied Sciences', logoUrl: '/images/companies/fontys.jpeg',
+    websiteUrl: 'https://www.fontys.nl/', location: 'Eindhoven',
+    roles: [
+      { role: 'Medior Azure Cloud Developer', employmentType: 'Full-time', period: 'August 2024 — Present', location: 'Eindhoven · Hybrid', description: '' },
+    ],
+  },
+  {
+    organization: 'FruitPunch AI', logoUrl: '/images/companies/fruitpunch.jpeg', websiteUrl: 'https://www.linkedin.com/company/18822537/',
+    period: 'February 2022 — July 2024 · 2 years 6 months', location: 'Eindhoven, North Brabant, Netherlands',
+    roles: [
+      { role: 'Software Engineer', employmentType: 'Full-time', period: 'August 2022 — July 2024', description: '' },
+      { role: 'Graduate Intern Software Engineering', employmentType: 'Internship', period: 'February 2022 — July 2022', description: '' },
+    ],
+  },
+  {
+    organization: 'Wolfpack', logoUrl: '/images/companies/wolfpack.png', websiteUrl: 'https://www.wolfpackit.nl/',
+    period: 'August 2020 — February 2022 · 1 year 7 months', location: 'Eindhoven, North Brabant, Netherlands',
+    roles: [
+      { role: 'Software Engineer', employmentType: 'Part-time', period: 'January 2021 — February 2022', description: '' },
+      { role: 'Intern Software Engineering', employmentType: 'Internship', period: 'August 2020 — January 2021', description: '' },
+    ],
+  },
 ];
 export const education = [
-  { qualification: 'Your degree or qualification', institution: 'School or university', period: 'Start date — End date', description: 'Add your field of study, relevant coursework, and any highlights you want to share.', sample: true },
+  { qualification: 'Bachelor, ICT & Software Engineering', institution: 'Fontys Hogeschool', logoUrl: '/images/companies/fontys.jpeg', period: 'September 2018 — July 2022', description: 'Grade: 10', sample: false },
 ];
+// Confirmed from the public LinkedIn profile; additional entries await the full profile.
 export const certifications: Certification[] = [
-  { name: 'Your certification', issuer: 'Issuing organization', date: 'Issue date', credentialUrl: '', sample: true },
+  { name: 'AZ-900: Microsoft Azure Fundamentals', issuer: 'Microsoft', level: 'Fundamentals', date: 'February 2023' },
+  { name: 'AI-901: Microsoft Azure AI Fundamentals', issuer: 'Microsoft', level: 'Fundamentals', date: 'April 2023' },
+  { name: 'AZ-204: Microsoft Azure Developer Associate', issuer: 'Microsoft', level: 'Associate', date: 'May 2023' },
+  { name: 'AI-102: Microsoft Azure AI Engineer Associate', issuer: 'Microsoft', level: 'Associate', date: 'June 2024' },
+  { name: 'DP-420: Azure Cosmos DB Developer Specialty', issuer: 'Microsoft', level: 'Specialty', date: 'August 2026', expires: 'August 2027' },
+  { name: 'AZ-400: Microsoft Azure DevOps Engineer Expert', issuer: 'Microsoft', level: 'Expert', date: 'February 2025' },
 ];
 export const hobbies = [
   { name: 'Exploring outdoors', icon: 'compass', description: 'Use this space to share your favorite ways to spend time outside.', sample: true },
