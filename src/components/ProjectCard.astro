@@ -1,0 +1,15 @@
+---
+import Icon from './Icon.astro';
+import ProjectVisual from './ProjectVisual.astro';
+import type { Project } from '../data/portfolio';
+interface Props { project: Project; }
+const { project } = Astro.props;
+---
+<article class="project-card" data-project data-category={project.category}>
+  <a class="project-image-link" href={`/projects/${project.slug}/`} aria-label={`Read about ${project.title}`}><ProjectVisual variant={project.visual} /></a>
+  <div class="project-card-content"><div class="card-meta"><span>{project.category}</span><span class:list={['status', { 'status-active': !project.sample }]}>{project.status}</span></div>
+    <h3><a href={`/projects/${project.slug}/`}>{project.title}</a></h3><p>{project.description}</p>
+    <div class="tags">{project.technologies.map((technology) => <span>{technology}</span>)}</div>
+    <a class="project-link" href={`/projects/${project.slug}/`}>Explore project <Icon name="arrow" size={16} /></a>
+  </div>
+</article>

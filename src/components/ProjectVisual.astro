@@ -1,0 +1,9 @@
+---
+interface Props { variant: 'portfolio' | 'analytics' | 'terminal'; }
+const { variant } = Astro.props;
+---
+<div class:list={['project-visual', variant]} aria-hidden="true">
+  {variant === 'portfolio' && <div class="mini-browser"><div class="mini-bar"><i></i><i></i><i></i><span>portfolio / overview</span></div><div class="mini-page"><div class="mini-sidebar"><b>rp.</b><i></i><i></i><i></i></div><div class="mini-content"><span>HELLO, WORLD</span><strong>Ideas into<br/>something real.</strong><div class="mini-blocks"><i></i><i></i><i></i></div></div></div></div>}
+  {variant === 'analytics' && <div class="mini-dashboard"><div class="mini-bar"><span>Activity overview</span><span>↗</span></div><div class="mini-metrics"><div><small>Visitors</small><b>2,840</b></div><div><small>Engagement</small><b>+24.8%</b></div></div><div class="chart-bars">{[28, 42, 36, 61, 50, 74, 64, 84, 71, 100, 88, 114].map((height) => <i style={`height:${height}px`}></i>)}</div></div>}
+  {variant === 'terminal' && <div class="mini-terminal"><div class="mini-bar"><i></i><i></i><i></i><span>~/projects/toolkit</span></div><div class="terminal-lines"><p><span>❯</span> toolkit run</p><p class="muted">Starting your workflow…</p><p><em>✓</em> Prepare workspace</p><p><em>✓</em> Process files</p><p><em>✓</em> Make something happen</p><p class="terminal-success">All done. Time for a coffee.</p><p><span>❯</span> <b class="cursor"></b></p></div></div>}
+</div>
